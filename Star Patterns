@@ -1,0 +1,116 @@
+1. Right half pyram
+public class Ex {
+	public static void main(String[] args) {
+		for(int i=1;i<=6;i++) {
+			for(int j=1;j<=i;j++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+	}
+
+}
+O/p: 
+*
+**
+***
+****
+*****
+******
+2. reverse right half pyramid
+public class Stars {
+	public static void main(String[] args) {
+		for(int i=5;i>=1;i--) {
+			for(int j=1;j<=i;j++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+	}
+	
+
+}
+O/P: 
+*****
+****
+***
+**
+*
+3. Reverse left half pyramid
+public class Star {
+	public static void main(String[] args) {
+		int n=6;
+		for(int i=1;i<=n;i++) {  //rows
+			for(int k=1;k<=i;k++)//spaces(use i for L-H(1_5))(spaces increasing)
+			{
+				System.out.print(" ");
+				}
+				for(int j=1;j<=n-i;j++) { //stars(use n-1(5) for H-L(5-1))(stars decreasing)
+					
+					System.out.print("*");
+				
+			}
+				System.out.println();
+		}
+	}
+
+}
+
+O/p : 
+*****
+  ****
+   ***
+    **
+     *
+4. Left half pyramid
+public class Ex {
+	public static void main(String[] args) {
+		int n=6;
+		for(int i=1;i<=n;i++) {
+			for(int k=1;k<=n-i;k++) { //spaces(use n-i (5) for H-L(5-1))(spaces decreasing)
+				System.out.print(" ");
+			}
+			for(int j=1;j<=i;j++) { //stars(use i for L-H(1_5))(stars increasing)
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+	}
+
+}
+O/P: 
+     *
+    **
+   ***
+  ****
+ *****
+******
+
+5. K pattern: 
+public class Starr {
+	public static void main(String[] args) {
+		for(int i=5;i>=1;i--) {
+			for(int j=1;j<=i;j++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+		for(int i=2;i<=5;i++) {
+			for(int j=1;j<=i;j++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+	}
+	
+}
+
+*****
+****
+***
+**
+*
+**
+***
+****
+*****
