@@ -1,4 +1,4 @@
-1. Right half pyram
+1. Right half pyramid
 public class Ex {
 	public static void main(String[] args) {
 		for(int i=1;i<=6;i++) {
@@ -114,16 +114,43 @@ public class Starr {
 ***
 ****
 *****
-6. Hollow square patterm
-public class NumberIncreasingPyramid {
+
+6.Star pyramid
+public class Stars {
+	public static void main(String[] args) {
+		int n=5;
+		
+		for(int i=1;i<=n;i++) {
+			for(int k=1;k<=n-i;k++) { // for this loop computer starts from column1 to move the cursoor to center position(3) we print spaces
+				System.out.print(" ");
+			}
+			for(int j=1;j<=2*i-1;j++) { // after printing spaces new loop starts here
+// in this loop traiangle loop starts and it always starts from j=1 means the first position inside the triangle, not the first column of the screen
+				System.out.print("*");
+			
+			}
+			System.out.println();
+		}
+	}
+
+}
+O/P:
+    *
+   ***
+  *****
+ *******
+*********
+
+7. Hollow square patterm
+public class Stars {
 	public static void main(String[] args) {
 		int n=5;
 		
 		for(int i=1;i<=n;i++) {
 			
 			for(int j=1;j<=n;j++) {
-				if(i==1||i==n||j==1||j==n) {
-					System.out.print("*");
+				if(i==1||i==n||j==1||j==n) {// first row i=1 last row i=5(this is to print horizontal all stars in that row)
+					System.out.print("*"); // first column j=1 and last column j=5(this vertical all 5 stars to print)
 				}else {
 					System.out.print(" ");
 				}
@@ -134,8 +161,187 @@ public class NumberIncreasingPyramid {
 
 }
 O/P:
-*****
+*****                Note: we write the if conition according to borders as (L,R,B,T)
 *   *
 *   *
 *   *
 *****
+8. holoow traingle
+public class Stars {
+	public static void main(String[] args) {
+		int n=9;
+		for(int i=1;i<=n;i++) {
+			for(int j=1;j<=n;j++) {
+				if(i==n||j==n||j==) {
+					System.out.print("* ");
+				}else {
+					System.out.print("  ");
+				}
+			}
+			System.out.println();
+
+		}
+		
+}
+	}
+O/p:	
+*         
+* *       
+*   *     
+*     *   
+* * * * * 
+9. 
+public class Stars {
+	public static void main(String[] args) {
+		int n=9;
+		for(int i=1;i<=n;i++) {
+			for(int j=1;j<=n;j++) {
+				if(i==n||j==n||j==n-i+1) {
+					System.out.print("* ");
+				}else {
+					System.out.print("  ");
+				}
+			}
+			System.out.println();
+
+		}
+		
+}
+	}
+O/P:
+        * 
+      * * 
+    *   * 
+  *     * 
+* * * * * 
+10. center aligned hollow triangle:
+
+public class Stars {
+	public static void main(String[] args) {
+		int n=9;
+		for(int i=1;i<=n;i++) {
+			for(int k=1;k<=n-i;k++) {  //to find center position print spaces, after printing spaces it becomes the starting column1
+				System.out.print(" "); // move the cursor to the center by printing(n-1)leading spaces
+			}
+			for(int j=1;j<=2*i-1;j++) { 
+			//from here we draw the triangle according to stars positions(1,3,5,7 ...stars in each row like r1s2,r2,s3,r3,s5(s=stars, r-rows))
+			//1,3,5,7 is the right left border for that we write the formula as j=2*i-1
+				if(i==n||j==1||j==2*i-1) { // bottom border(i==n),left border(j==1), right border(j==2*i-1)
+					System.out.print("*");
+				}else {
+					System.out.print(" ");
+				}
+			}
+			System.out.println();
+		}	
+}
+	}
+O/p:               NOTE: 1. spaces move the cursor to the triangle start
+                         2. new loop starts here
+    *                    3. j->counts from the cursor not from the screen
+   * *                   4. j=1 is the first position inside the triangle
+  *   *
+ *     *
+*********
+
+11. inverted hollow triangle:
+public class Stars {
+	public static void main(String[] args) {
+		int n=5;
+		for(int i=1;i<=n;i++) {
+			for(int k=1;k<=i;k++) {  
+				System.out.print(" "); 
+			}
+			for(int j=1;j<=2*(n-i)+1;j++) { 
+				if(i==1||j==1||j==2*(n-i)+1) { // as for inverted triangle we use j==2*(n-i)+1 for (9,7,5,3,1)
+					//as for proper triangle we use condition as j==2*i-1 for(1,3,5,7,9)
+					System.out.print("*");
+				}else {
+					System.out.print(" ");
+				}
+			}
+			System.out.println();
+		}	
+}
+	}
+
+O/P:
+ *********
+  *     *
+   *   *
+    * *
+     *
+
+12. public class FiveStars {
+	public static void main (String[]args) {
+		int n=5;
+		for(int i=n;i>=1;i--) { // when we initiate i=5 r1,r2,r3... starts or increses from bottom intersection
+//if we initiate i=1 then row increases from top and bottom is r5
+//OR here we take i=5 to print 5stars at top and then decrese to i=1(decides position or no.of stars to print)
+			for(int j=1;j<=n-i;j++) {
+				System.out.print(" ");
+			}
+			for(int k=1;k<=i;k++) {
+				if(k==1||i==n||k==i){
+					System.out.print("* "); 
+					}
+				else {
+					System.out.print("  "); // add two spaces to get only five stars at top
+				}
+		}
+			System.out.println();
+	}
+	}}
+
+O/P:
+* * * * * 
+ *     * 
+  *   * 
+   * * 
+    * 
+NOTE: If the rws are 5,4,3,2,1 ->use k<=i(or a shrinking version)(12th problem)
+If the  rows are 1,3,5,7,9 -> use k<=2*i-1(11th problem)
+
+13. public class NumberIncreasingPyramid {
+	public static void main (String[]args) {
+		int n=5;
+		for(int i=5;i>=1;i--) {
+			for(int k=1;k<=n-i;k++) {
+				System.out.print(" ");
+			}
+			for(int j=1;j<=i;j++) {
+				if(j==1||i==n||j==i){
+					System.out.print("* ");
+					}
+				else {
+					System.out.print("  ");
+				}
+		}
+			System.out.println();
+	}
+		for(int i=2;i<=n;i++) {
+			for(int k=1;k<=n-i;k++) {
+				System.out.print(" ");
+			}
+			for(int j=1;j<=i;j++) {
+				if(j==1||i==n||j==i){
+					System.out.print("* ");
+					}
+				else {
+					System.out.print("  ");
+				}
+		}
+			System.out.println();
+	}
+	}}
+	O/P:
+* * * * * 
+ *     * 
+  *   * 
+   * * 
+    * 
+   * * 
+  *   * 
+ *     * 
+* * * * * 
+
