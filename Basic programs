@@ -302,5 +302,163 @@ z → 122
 0 → 48
 9 → 57
 
+15. Multiplication table
+package com.packages;
+import java.util.Scanner;
+
+public class A {
+	public static void main(String[]args) {
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Please enter:");
+		int n = sc.nextInt();
+		for(int i=1;i<=10;i++ ) {
+			System.out.println(n+"x"+i+"="+(n*i));
+		}
+	}}
+
+16. factorial
+Logic:
+Factorial means multiplying all positive numbers from 1 up to the given number. 
+For example, the factorial of 5 is `5 × 4 × 3 × 2 × 1 = 120`.
+We use a `for` loop because we know exactly how many times the multiplication should happen.
+We create a variable named `fact` and initialize it to 1 because 1 is the multiplicative identity.
+If we initialized it to 0, every multiplication would result in 0. Inside the loop, we write `fact = fact * i`, which means take the current factorial value, multiply it by the current value of `i`, and store the result back into `fact`. This keeps updating the factorial until the loop ends.
+
+package com.packages;
+import java.util.Scanner;
+public class A {
+	public static void main(String[]args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Please enter:");
+		int n = sc.nextInt();
+		int fact = 1;	
+		for(int i=1;i<=n;i++ ) {
+		 fact = fact*i;	
+	}
+		System.out.println("Factorial:"+fact);
+	}}
+
+17. Problem:
+Write a Java program to reverse a given number.
+Logic:
+Suppose the user enters `1234`. We need to print `4321`.
+We cannot directly reverse an integer, so we extract one digit at a time from the end.
+We use the modulus (`%`) operator because it gives the remainder after division, which is always the last digit of the number.
+For example, `1234 % 10 = 4`. After extracting the last digit, we use the division (`/`) operator to remove that digit.
+For example, `1234 / 10 = 123` because integer division removes the decimal part. We keep storing the extracted digits in a new variable called `reverse`. 
+Every time a new digit is added, we first multiply `reverse` by 10 to shift its digits one place to the left and then add the extracted digit.
+This process continues until the original number becomes 0.
+
+ % Operator – Extracts the last digit.
+ / Operator – Removes the last digit.
+ * 10 – Shifts the existing digits to the left before adding the next digit.
+
+Why are we using `while` instead of `for`?
+We don't know how many digits the number has. The loop should continue until the number becomes 0, so `while` is more suitable than `for`.
+
+Dry Run:
+Suppose the input is `1234`. Initially `reverse = 0`. First iteration: `digit = 1234 % 10 = 4`, then `reverse = 0 * 10 + 4 = 4`, and `n = 1234 / 10 = 123`. Second iteration: `digit = 3`, `reverse = 4 * 10 + 3 = 43`, `n = 12`. Third iteration: `digit = 2`, `reverse = 43 * 10 + 2 = 432`, `n = 1`. Fourth iteration: `digit = 1`, `reverse = 432 * 10 + 1 = 4321`, `n = 0`. Since `n` becomes 0, the loop stops.
+package com.packages;
+import java.util.Scanner;
+public class A {
+	public static void main(String[]args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Please enter:");
+		int n = sc.nextInt();
+		int reverse = 0;	
+		while(n!=0) {
+			int digit= n%10;
+			reverse = reverse*10 + digit;
+			n=n/10;
+		}
+		System.out.println("Reverse:" +reverse);
+	}}
+
+Problem:
+Write a Java program to check whether a number is a Palindrome.
+Logic:
+A palindrome number is a number that remains the same even after reversing it. Examples are `121`, `1331`, and `444`. The logic is simple: first, save the original number because during the reversing process the original number will become 0. Then reverse the number using the same logic as the previous program. Finally, compare the reversed number with the original number. If both are equal, the number is a palindrome; otherwise, it is not.
+• Temporary Variable – Stores the original number for comparison.
+• while Loop – Reverses the number.
+• % Operator – Extracts the last digit.
+• / Operator – Removes the last digit.
+• == Operator – Compares whether both numbers are equal.
+import java.util.Scanner;
+public class PalindromeNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int n = sc.nextInt();
+        int original = n;
+        int reverse = 0;
+        while (n != 0) {
+            int digit = n % 10;
+            reverse = reverse * 10 + digit;
+            n = n / 10;
+        }
+
+        if (original == reverse)
+            System.out.println("Palindrome Number");
+        else
+            System.out.println("Not a Palindrome Number");
+    }
+}
+Expected Output:
+Input:
+121
+Output:
+Palindrome Number
+Input:
+123
+Output:
+Not a Palindrome Number
+
+# Program 22: Count Number of Digits
+
+Problem:
+Write a Java program to count the number of digits present in a given number.
+
+Logic:
+Suppose the user enters `45892`. The answer should be `5` because there are five digits. We don't need to know what the digits are; we only need to know how many exist. Every time we divide a number by 10, the last digit is removed. For example, `45892 / 10 = 4589`, then `4589 / 10 = 458`, then `458 / 10 = 45`, then `45 / 10 = 4`, and finally `4 / 10 = 0`. Every time one digit is removed, we increase a variable called `count` by 1. When the number becomes 0, it means all digits have been removed, so the value of `count` is the total number of digits.
+
+Concepts Used:
+• Scanner Class – Reads the input number.
+• while Loop – Repeats until the number becomes 0.
+• / Operator – Removes the last digit of the number.
+• count++ – Increases the count by 1 after removing each digit.
+
+Why are we using `/ 10`?
+When an integer is divided by 10, Java removes the last digit because integer division ignores the decimal part. Example: `4567 / 10 = 456`, `456 / 10 = 45`, `45 / 10 = 4`, `4 / 10 = 0`. This is the easiest way to remove one digit at a time.
+
+Why are we using `count++`?
+`count++` is called the Increment Operator. It means `count = count + 1`. Every time one digit is removed, we have processed one digit, so we increase the count by 1.
+
+Why don't we use `%` here?
+Because we don't need the actual digit. We only need to know how many digits exist. So removing digits using `/ 10` is enough.
+Code:
+import java.util.Scanner;
+public class CountDigits {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int n = sc.nextInt();
+        int count = 0;
+        while (n != 0) {
+            count++;
+            n = n / 10;
+        }
+        System.out.println("Number of Digits = " + count);
+    }
+}
+Dry Run:
+Suppose the input is `45892`. Initially `count = 0`. First iteration: `count = 1`, `n = 4589`. Second iteration: `count = 2`, `n = 458`. Third iteration: `count = 3`, `n = 45`. Fourth iteration: `count = 4`, `n = 4`. Fifth iteration: `count = 5`, `n = 0`. Since `n` becomes 0, the loop stops and the answer is `5`.
+
+Expected Output:
+Input:
+45892
+Output:
+Number of Digits = 5
+
 
 
