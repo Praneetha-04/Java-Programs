@@ -16,4 +16,291 @@ public static void main(String[] args) {
 }
 }
 O/P: 25
+1. Add Two Numbers
+import java.util.Scanner;
+
+public class AddTwoNumbers {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter first number: ");
+        int a = sc.nextInt();
+
+        System.out.print("Enter second number: ");
+        int b = sc.nextInt();
+
+        int sum = a + b;
+
+        System.out.println("Sum = " + sum);
+    }
+}
+2. Subtract Two Numbers
+import java.util.Scanner;
+
+public class Subtract {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+
+        int result = a - b;
+
+        System.out.println(result);
+    }
+}
+3. Multiply Two Numbers        
+import java.util.Scanner;
+
+public class Multiply {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+
+        int product = a * b;
+
+        System.out.println(product);
+    }
+}
+4. Divide Two Numbers
+import java.util.Scanner;
+
+public class Divide {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+
+        int result = a / b;
+
+        System.out.println(result);
+    }
+}
+5. Swap Two Numbers (Using Temporary Variable)
+import java.util.Scanner;
+
+public class Swap {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+
+        int temp = a;
+        a = b;
+        b = temp;
+
+        System.out.println(a);
+        System.out.println(b);
+    }
+}
+6. Swap Without Temporary Variable
+import java.util.Scanner;
+
+public class SwapWithoutTemp {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+
+        a = a + b;
+        b = a - b;
+        a = a - b;
+
+        System.out.println(a);
+        System.out.println(b);
+    }
+}
+7. Even or Odd
+import java.util.Scanner;
+
+public class EvenOdd {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        if (n % 2 == 0)
+            System.out.println("Even");
+        else
+            System.out.println("Odd");
+    }
+}
+
+8. Positive, Negative or Zero
+import java.util.Scanner;
+
+public class PositiveNegative {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        if (n > 0)
+            System.out.println("Positive");
+        else if (n < 0)
+            System.out.println("Negative");
+        else
+            System.out.println("Zero");
+    }
+}
+9. Largest of Two Numbers
+import java.util.Scanner;
+
+public class LargestTwo {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+
+        if (a > b)
+            System.out.println(a);
+        else
+            System.out.println(b);
+    }
+}
+10. Largest of Three Numbers
+import java.util.Scanner;
+
+public class LargestThree {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = sc.nextInt();
+
+        if (a >= b && a >= c)
+            System.out.println(a);
+        else if (b >= a && b >= c)
+            System.out.println(b);
+        else
+            System.out.println(c);
+    }
+}
+11. Smallest of Three Numbers
+import java.util.Scanner;
+
+public class SmallestThree {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = sc.nextInt();
+
+        if (a <= b && a <= c)
+            System.out.println(a);
+        else if (b <= a && b <= c)
+            System.out.println(b);
+        else
+            System.out.println(c);
+    }
+}
+
+12. Leap Year
+Logic
+
+A leap year follows these rules:
+
+If a year is divisible by 400, it is a leap year.
+Otherwise, if it is divisible by 4 but not divisible by 100, it is also a leap year.
+Otherwise, it is not.
+
+year % 400 == 0 ||
+(year % 4 == 0 && year % 100 != 0)
+This means:
+
+Either the year is divisible by 400,
+OR it is divisible by 4 but not by 100.
+
+If either rule is satisfied, it's a leap year.
+
+import java.util.Scanner;
+public class LeapYear {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int year = sc.nextInt();
+        if ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0))
+            System.out.println("Leap Year");
+        else
+            System.out.println("Not Leap Year");
+    }
+}
+
+13. Vowel or Consonant
+package com.packages;
+import java.util.Scanner;
+
+public class A {
+	public static void main(String[]args) {
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("enter a albhabet:");
+		char ch = sc.next().charAt(0);
+		ch = Character.toLowerCase(ch);
+
+		if (ch =='a'||ch =='e'||ch =='i'||ch =='o'||ch =='u') {
+			System.out.println("vowel");
+		}else 
+		{
+			System.out.println("consonant");
+		}
+		}
+		}
+Other way:
+import java.util.Scanner;
+
+public class VowelOrConsonant {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a character: ");
+        char ch = sc.next().charAt(0);
+
+        if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ||
+            ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U') {
+
+            System.out.println("Vowel");
+        } else {
+            System.out.println("Consonant");
+        }
+    }
+}
+
+14.Alphabet, Digit, or Special Character
+package com.packages;
+import java.util.Scanner;
+
+public class A {
+	public static void main(String[]args) {
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Please enter:");
+		char ch = sc.next().charAt(0);
+		if ((ch>='a' && ch<='z')||(ch>='A' && ch<='Z')) {
+			System.out.println("Alphabet");
+		}else if(ch>='0' && ch<='9'){
+			System.out.println("Digit");
+
+		}else {
+			System.out.println("special character");
+		}
+		
+	}}
+A → 65
+Z → 90
+
+a → 97
+z → 122
+
+0 → 48
+9 → 57
+
+
 
