@@ -415,7 +415,6 @@ Output:
 Not a Palindrome Number
 
 # Program 22: Count Number of Digits
-
 Problem:
 Write a Java program to count the number of digits present in a given number.
 
@@ -459,6 +458,54 @@ Input:
 45892
 Output:
 Number of Digits = 5
+
+# Program 23: Sum of Digits
+Problem:
+Write a Java program to find the sum of all digits in a given number.
+Logic:
+Suppose the user enters `1234`. The answer should be `1 + 2 + 3 + 4 = 10`. Since the digits are inside one number, we first extract the last digit using the `%` operator. For example, `1234 % 10 = 4`. Then we add that digit to a variable called `sum`. After adding it, we remove the last digit using `/ 10`, making the number `123`. We repeat the same process until the number becomes 0. At the end, `sum` contains the total of all digits.
+
+Concepts Used:
+• Scanner Class – Reads the input number.
+• while Loop – Continues until all digits are processed.
+• % Operator – Extracts the last digit.
+• / Operator – Removes the last digit.
+• sum = sum + digit – Adds each extracted digit to the running total.
+
+Why are we using `%`?
+The `%` operator gives the remainder after division. When dividing by 10, the remainder is always the last digit. Example: `987 % 10 = 7`, `56 % 10 = 6`, `4 % 10 = 4`. This makes `%` the easiest way to extract digits.
+
+Why are we using `sum = sum + digit`?
+Initially, `sum` is 0. Every time we extract a digit, we add it to the existing total. This statement keeps updating the total until all digits have been processed.
+
+Why are we using both `%` and `/` together?
+`%` extracts the last digit, while `/` removes the last digit. These two operations work together in almost every digit-based interview program such as Reverse Number, Armstrong Number, Strong Number, Neon Number, and Sum of Digits.
+
+Code:
+import java.util.Scanner;
+public class SumOfDigits {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int n = sc.nextInt();
+        int sum = 0;
+        while (n != 0) {
+            int digit = n % 10;
+            sum = sum + digit;
+            n = n / 10;
+        }
+        System.out.println("Sum of Digits = " + sum);
+    }
+}
+Dry Run:
+Suppose the input is `1234`. First iteration: `digit = 4`, `sum = 4`, `n = 123`. Second iteration: `digit = 3`, `sum = 7`, `n = 12`. Third iteration: `digit = 2`, `sum = 9`, `n = 1`. Fourth iteration: `digit = 1`, `sum = 10`, `n = 0`. Since `n` becomes 0, the loop stops and the answer is `10`.
+Expected Output:
+Input:
+1234
+Output:
+Sum of Digits = 10
+
+
 
 
 
